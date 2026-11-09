@@ -326,7 +326,7 @@ img { display: block; max-width: 100%; }
 .envelope__body {
   position: relative;
   aspect-ratio: 3 / 2;
-  min-height: 300px; /* room for seal + address on narrow phones */
+  max-width: 100%;
   background: var(--paper-grain), linear-gradient(170deg, #e4dccd, var(--paper-aged));
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
   overflow: hidden;
@@ -389,6 +389,12 @@ img { display: block; max-width: 100%; }
   25%  { transform: translate(-50%, -50%) rotate(4deg) scale(1.08); }
   45%  { transform: translate(-50%, -50%) rotate(-12deg) scale(1.08); opacity: 1; }
   100% { transform: translate(-50%, 120%) rotate(40deg) scale(0.9); opacity: 0; }
+}
+
+/* Phones: a taller envelope so the seal and address don't collide */
+@media (max-width: 480px) {
+  .envelope__body { aspect-ratio: 5 / 4; }
+  .seal { width: 23%; min-width: 64px; }
 }
 
 /* ----- 2. The task letter (torn paper) ----- */
