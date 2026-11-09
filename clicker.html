@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>The Button · Carlson Taskmaster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Lora:ital@0;1&family=Special+Elite&family=Fjalla+One&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="button-task">
+
+  <header class="hero hero--compact">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">Carlson Taskmaster</p>
+      <h1 class="hero__title">The Button</h1>
+    </div>
+  </header>
+
+  <main class="task">
+    <div class="task__inner">
+      <p id="status" class="task__status">Connecting to the Taskmaster's records…</p>
+
+      <!-- 1. Sealed envelope: shown until the contestant breaks the seal -->
+      <section id="sealed" class="envelope" hidden>
+        <div class="envelope__body">
+          <div class="envelope__flap" aria-hidden="true"></div>
+          <div class="envelope__address">
+            <p class="envelope__label">Task</p>
+            <p class="envelope__to">For the attention of<br /><span id="sealed-name"></span></p>
+          </div>
+          <button id="seal" class="seal" type="button" aria-label="Break the seal">
+            <svg class="seal__svg" viewBox="-4 -4 108 108" aria-hidden="true">
+              <defs>
+                <radialGradient id="wax" cx="38%" cy="32%" r="75%">
+                  <stop offset="0" stop-color="#c0362b" />
+                  <stop offset="0.45" stop-color="#941d12" />
+                  <stop offset="1" stop-color="#4b0905" />
+                </radialGradient>
+                <radialGradient id="wax-well" cx="60%" cy="65%" r="70%">
+                  <stop offset="0" stop-color="#9a2318" />
+                  <stop offset="1" stop-color="#6e120b" />
+                </radialGradient>
+              </defs>
+              <!-- Wax blob -->
+              <path fill="url(#wax)" d="M94.8 50.0C95.6 52.0 97.6 54.2 98.5 56.4C99.3 58.6 99.8 61.0 100.0 63.4C100.1 65.7 100.2 68.4 99.4 70.5C98.6 72.6 96.7 74.4 95.0 76.0C93.3 77.6 91.0 78.7 89.1 80.0C87.3 81.3 85.7 82.8 83.9 83.9C82.1 85.1 79.9 85.6 78.3 86.8C76.6 88.0 75.4 89.9 73.8 91.3C72.2 92.6 70.5 94.0 68.7 95.1C66.8 96.1 64.8 96.8 62.8 97.6C60.7 98.4 58.7 99.3 56.5 99.6C54.4 99.8 52.2 99.4 50.0 99.2C47.8 99.0 45.7 98.9 43.6 98.5C41.5 98.2 39.4 97.7 37.3 97.2C35.3 96.7 33.1 96.4 31.1 95.5C29.2 94.6 27.6 93.1 25.9 91.8C24.2 90.5 22.7 89.0 21.0 87.7C19.3 86.5 17.5 85.5 15.6 84.4C13.7 83.2 11.7 82.2 9.7 80.9C7.8 79.6 5.5 78.3 3.9 76.6C2.4 74.9 0.7 72.9 0.2 70.6C-0.3 68.4 0.4 65.6 1.0 63.1C1.5 60.7 2.9 58.3 3.3 56.1C3.7 54.0 3.4 52.0 3.4 50.0C3.5 48.0 3.5 46.0 3.5 43.9C3.5 41.8 3.1 39.6 3.3 37.5C3.5 35.4 4.1 33.3 4.9 31.3C5.7 29.4 7.2 27.700 8.2 25.9C9.3 24.0 9.8 21.7 11.3 20.3C12.7 18.8 15.3 18.2 17.1 17.1C18.9 16.0 20.3 14.6 22.0 13.5C23.7 12.4 25.3 11.2 27.2 10.5C29.0 9.7 31.2 9.8 33.1 9.3C35.0 8.7 36.7 7.6 38.5 7.2C40.4 6.9 42.4 7.3 44.3 7.0C46.2 6.7 48.1 5.9 50.0 5.7C51.9 5.5 53.9 5.7 55.8 5.9C57.7 6.2 59.5 6.9 61.4 7.4C63.3 7.9 65.3 8.0 67.1 8.8C68.8 9.6 70.2 11.1 71.9 12.2C73.5 13.2 75.4 13.7 77.0 14.8C78.5 15.9 79.9 17.4 81.2 18.8C82.6 20.2 83.9 21.6 85.0 23.1C86.1 24.7 87.0 26.4 88.0 28.0C89.1 29.7 90.3 31.2 91.2 32.9C92.0 34.7 92.8 36.5 93.3 38.4C93.7 40.3 93.7 42.3 94.0 44.2C94.2 46.1 94.1 48.0 94.8 50.0Z" />
+              <!-- Pressed well where the stamp went in -->
+              <circle cx="50" cy="52" r="33" fill="url(#wax-well)" />
+              <circle cx="50" cy="52" r="33" fill="none" stroke="#4b0905" stroke-width="1.5" opacity="0.6" />
+              <circle cx="50" cy="52" r="29" fill="none" stroke="#c0362b" stroke-width="1" opacity="0.5" />
+              <!-- Highlight on the raised rim -->
+              <path d="M20 34 Q30 16 52 14" fill="none" stroke="#e8705f" stroke-width="2.5" stroke-linecap="round" opacity="0.45" />
+              <text class="seal__tm" x="50" y="63" text-anchor="middle">TM</text>
+            </svg>
+          </button>
+        </div>
+        <p class="envelope__hint">Break the seal to open your task.</p>
+      </section>
+
+      <!-- 2. The task letter: shown on opening, and again from the side tab -->
+      <section id="letter" class="letter" hidden>
+        <article class="letter__paper">
+          <p class="letter__eyebrow">Task</p>
+          <!-- Placeholder task wording: edit freely. -->
+          <h2 class="letter__title">Keep your device alive.</h2>
+          <p>Every press of the button resets its countdown. If the countdown ever
+             reaches zero, the device goes dead and your task is over.</p>
+          <p>The contestant who keeps their device alive the longest wins.</p>
+          <p>Your time starts now.</p>
+          <p class="letter__sign">The Taskmaster</p>
+          <button id="dismiss" class="cta" type="button">Put the letter aside</button>
+        </article>
+      </section>
+
+      <!-- 3. The device -->
+      <section id="device" class="device" hidden>
+        <div class="device__display">
+          <p class="device__label">Time remaining</p>
+          <p id="countdown" class="device__digits" aria-live="off">--:--:--</p>
+        </div>
+
+        <svg class="device__wires" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M20 0 C40 30 90 10 110 40" stroke="#941d12" />
+          <path d="M150 0 C130 25 175 20 150 40" stroke="#c9a227" />
+          <path d="M280 0 C250 35 210 5 190 40" stroke="#2f5d8a" />
+        </svg>
+
+        <button id="press" class="device__button" type="button">Press</button>
+        <p id="message" class="device__message" aria-live="polite"></p>
+
+        <div class="device__bay">
+          <div id="dial" class="dial" inert>
+            <p class="device__label">Days per press</p>
+            <div class="dial__face">
+              <span class="dial__tick" style="--i: 0">1</span>
+              <span class="dial__tick" style="--i: 1">2</span>
+              <span class="dial__tick" style="--i: 2">3</span>
+              <span class="dial__tick" style="--i: 3">4</span>
+              <span class="dial__tick" style="--i: 4">5</span>
+              <div id="dial-knob" class="dial__knob"><span class="dial__pointer"></span></div>
+              <button id="dial-down" class="dial__half dial__half--down" type="button" aria-label="Fewer days"></button>
+              <button id="dial-up" class="dial__half dial__half--up" type="button" aria-label="More days"></button>
+            </div>
+            <output id="dial-value" class="dial__value"></output>
+          </div>
+        </div>
+
+        <!-- Faceplate: frames the display and button, covers the dial bay.
+             Held on by the four corner screws. -->
+        <div id="panel" class="device__panel">
+          <button class="screw screw--tl" type="button" data-screw="1" aria-label="Screw"></button>
+          <button class="screw screw--tr" type="button" data-screw="2" aria-label="Screw"></button>
+          <button class="screw screw--bl" type="button" data-screw="3" aria-label="Screw"></button>
+          <button class="screw screw--br" type="button" data-screw="4" aria-label="Screw"></button>
+        </div>
+      </section>
+
+      <button id="reread" class="letter-tab" type="button" hidden>Your task</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="index.html">Carlson Taskmaster</a> &middot; A family production</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="clicker.js"></script>
+</body>
+</html>

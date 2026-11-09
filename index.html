@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carlson Taskmaster</title>
+  <meta name="description" content="The family version of the game show Taskmaster — Carlson Taskmaster." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Lora:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== Section 1: Welcome / Hero ===== -->
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">Welcome to</p>
+      <h1 class="hero__title">Carlson<br />Taskmaster</h1>
+      <p class="hero__tagline">A family contest of silly tasks, questionable judgement, and glorious points.</p>
+
+      <figure class="gold-frame hero__portrait">
+        <img src="kenny_taskmaster.png" alt="Kenny Carlson, the Taskmaster, seated on a golden throne" />
+      </figure>
+      <p class="hero__caption"><span class="role-tag">The Taskmaster</span> Kenny Carlson</p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== Section 2: The Assistant ===== -->
+    <section class="assistant" aria-labelledby="assistant-heading">
+      <div class="assistant__inner">
+        <figure class="gold-frame gold-frame--sm assistant__portrait">
+          <img src="page_assistent.png" alt="Page West, the Taskmaster's assistant" />
+        </figure>
+        <div class="assistant__text">
+          <h2 id="assistant-heading" class="section-title">The Taskmaster's Assistant</h2>
+          <p class="assistant__name">Page West</p>
+          <p>Loyal right-hand, keeper of the scores, and reader of the tasks. Page does
+          the Taskmaster's bidding and gently judges everyone in the process.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section 3: What is Taskmaster? ===== -->
+    <section class="about" aria-labelledby="about-heading">
+      <div class="about__inner">
+        <h2 id="about-heading" class="section-title">What is Taskmaster?</h2>
+        <p>
+          Taskmaster is a game of gloriously pointless challenges. Five contestants
+          attempt to complete strange, creative, and often ridiculous tasks — usually
+          worse than you'd expect, and occasionally better than anyone hoped.
+        </p>
+        <p>
+          The Taskmaster reviews every attempt, hands out points entirely at his own
+          discretion, and crowns a champion. The most points wins. Fairness is optional.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Section 4: The Contestants ===== -->
+    <section class="contestants" aria-labelledby="contestants-heading">
+      <div class="contestants__inner">
+        <h2 id="contestants-heading" class="section-title">The Contestants</h2>
+        <p class="contestants__sub">Current Series Line-up</p>
+
+        <ul class="leaderboard">
+          <li class="player-card">
+            <span class="player-card__rank">1</span>
+            <div class="gold-frame gold-frame--xs player-card__frame"><img class="player-card__photo" src="assets/contestants/kathryn_carlson.jpg" alt="Kathryn Carlson" /></div>
+            <p class="player-card__name"><span>Kathryn</span> <span>Carlson</span></p>
+          </li>
+          <li class="player-card">
+            <span class="player-card__rank">2</span>
+            <div class="gold-frame gold-frame--xs player-card__frame"><img class="player-card__photo" src="assets/contestants/elizabeth_robb.jpg" alt="Elizabeth Robb" /></div>
+            <p class="player-card__name"><span>Elizabeth</span> <span>Robb</span></p>
+          </li>
+          <li class="player-card">
+            <span class="player-card__rank">3</span>
+            <div class="gold-frame gold-frame--xs player-card__frame"><img class="player-card__photo" src="assets/contestants/mike_robb.jpg" alt="Mike Robb" /></div>
+            <p class="player-card__name"><span>Mike</span> <span>Robb</span></p>
+          </li>
+          <li class="player-card">
+            <span class="player-card__rank">4</span>
+            <div class="gold-frame gold-frame--xs player-card__frame"><img class="player-card__photo" src="assets/contestants/lindsay_veazey.jpg" alt="Lindsay Veazey" /></div>
+            <p class="player-card__name"><span>Lindsay</span> <span>Veazey</span></p>
+          </li>
+          <li class="player-card">
+            <span class="player-card__rank">5</span>
+            <div class="gold-frame gold-frame--xs player-card__frame"><img class="player-card__photo" src="assets/contestants/john_veazey.jpg" alt="John Veazey" /></div>
+            <p class="player-card__name"><span>John</span> <span>Veazey</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Carlson Taskmaster &middot; A family production</p>
+  </footer>
+
+</body>
+</html>

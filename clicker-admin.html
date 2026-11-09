@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>The Button Admin · Carlson Taskmaster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Lora:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="hero hero--compact">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">Taskmaster's eyes only</p>
+      <h1 class="hero__title">The Button</h1>
+      <p class="hero__tagline">Every contestant, every click.</p>
+    </div>
+  </header>
+
+  <main class="task">
+    <div class="admin__inner">
+      <p id="status" class="task__status">Opening the Taskmaster's records…</p>
+
+      <div id="board" hidden>
+        <div class="admin__table-wrap">
+          <table class="admin__table">
+            <thead>
+              <tr>
+                <th scope="col">Contestant</th>
+                <th scope="col">Status</th>
+                <th scope="col">Time left</th>
+                <th scope="col">Time in game</th>
+                <th scope="col">Opened</th>
+                <th scope="col">Clicks</th>
+                <th scope="col">Screws out</th>
+                <th scope="col">Dial</th>
+                <th scope="col">Link</th>
+              </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+
+        <h2 class="section-title admin__log-title">Click log</h2>
+        <div class="admin__table-wrap">
+          <table class="admin__table">
+            <thead>
+              <tr>
+                <th scope="col">When</th>
+                <th scope="col">Contestant</th>
+                <th scope="col">Dial</th>
+                <th scope="col">New deadline</th>
+              </tr>
+            </thead>
+            <tbody id="log"></tbody>
+          </table>
+        </div>
+        <p id="log-empty" class="admin__empty" hidden>No clicks yet.</p>
+
+        <div class="admin__reset">
+          <h2 class="section-title">Reset the task</h2>
+          <p>Re-seals every letter, puts the screws back, sets the dial to 2 days and deletes every click. Link keys stay the same.</p>
+          <button id="reset" class="admin__reset-button" type="button">Reset everyone</button>
+          <p id="message" class="task__message" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="index.html">Carlson Taskmaster</a> &middot; A family production</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="clicker-admin.js"></script>
+</body>
+</html>

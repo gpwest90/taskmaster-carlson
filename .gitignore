@@ -1,0 +1,4 @@
+.DS_Store
+
+# Full-size contestant originals; the site uses the cropped copies in assets/contestants/
+assets/*.jpeg

@@ -1,0 +1,750 @@
+/* ===== Carlson Taskmaster ===== */
+
+@font-face {
+  font-family: "Veteran Typewriter";
+  src: url("assets/veteran-typewriter.regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --red-deep: #4a0a0d;
+  --red: #7c0f15;
+  --red-bright: #9e1419;
+  --gold: #e9c46a;
+  --gold-bright: #f5d98b;
+  --gold-deep: #b8902f;
+  --cream: #f6efdd;
+  --ink: #1c0405;
+}
+
+* { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Lora", Georgia, serif;
+  color: var(--cream);
+  background-color: var(--red-deep);
+  line-height: 1.65;
+}
+
+img { display: block; max-width: 100%; }
+
+.section-title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  margin: 0 0 0.6em;
+}
+
+/* ===== Gold frame (shared) =====
+   A photographed gilt frame (assets/gold-frame.jpg, 120px moulding),
+   sliced with border-image so it wraps any picture. --b sets its width. */
+.gold-frame {
+  --b: 40px;
+  margin: 0;
+  border: var(--b) solid #b8892a;
+  border-image: url("assets/gold-frame.jpg") 120 stretch;
+  background: #2a1a06;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6), 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+.gold-frame img {
+  width: 100%;
+  box-shadow: inset 0 0 0 1px #3a2706;
+}
+.gold-frame--sm { --b: 26px; }
+.gold-frame--xs { --b: 14px; box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5); }
+
+/* ===== Section 1: Hero ===== */
+.hero {
+  position: relative;
+  padding: clamp(3rem, 7vw, 6rem) 1.5rem clamp(3.5rem, 8vw, 6rem);
+  text-align: center;
+  background-color: var(--red);
+  /* Red damask tile background with a vignette overlay for readability */
+  background-image:
+    radial-gradient(ellipse at center, rgba(74, 10, 13, 0.35) 0%, rgba(28, 4, 5, 0.78) 100%),
+    url("assets/homepage-tile.png");
+  background-repeat: no-repeat, repeat;
+  background-size: cover, 1200px auto;
+  background-position: center, top center;
+  border-bottom: 4px solid var(--gold-deep);
+}
+
+.hero__inner { max-width: 620px; margin: 0 auto; }
+
+.hero__eyebrow {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.45em;
+  color: var(--gold-bright);
+  margin: 0 0 0.3em;
+  font-size: 0.95rem;
+}
+
+.hero__title {
+  font-family: "Veteran Typewriter", "Oswald", sans-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  font-size: clamp(3rem, 11vw, 6rem);
+  margin: 0 0 0.3em;
+  color: var(--cream);
+  text-shadow: 0 3px 0 rgba(0,0,0,0.35);
+}
+
+.hero__tagline {
+  font-style: italic;
+  color: var(--gold-bright);
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  margin: 0 auto 2.2rem;
+  max-width: 30ch;
+}
+
+.hero__portrait { max-width: 420px; margin: 0 auto; }
+
+.hero__caption {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1.4rem;
+  margin: 1.4rem 0 0;
+  color: var(--cream);
+}
+
+.role-tag {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 0.2em;
+}
+
+/* ===== Section 2: Assistant ===== */
+.assistant {
+  background-color: var(--ink);
+  padding: clamp(2.5rem, 6vw, 4.5rem) 1.5rem;
+  border-bottom: 4px solid var(--gold-deep);
+}
+.assistant__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.assistant__portrait { flex: 0 0 220px; max-width: 220px; }
+.assistant__text { flex: 1 1 320px; }
+.assistant__name {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  color: var(--gold-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.4em;
+}
+
+/* ===== Section 3: About ===== */
+.about {
+  background-color: var(--red-deep);
+  padding: clamp(2.5rem, 6vw, 4.5rem) 1.5rem;
+  text-align: center;
+}
+.about__inner { max-width: 680px; margin: 0 auto; }
+.about p { font-size: 1.1rem; margin: 0 0 1.1em; }
+
+/* ===== Section 4: Contestants ===== */
+.contestants {
+  background-color: var(--ink);
+  padding: clamp(2.5rem, 6vw, 4.5rem) 1.5rem clamp(3rem, 7vw, 5rem);
+  text-align: center;
+  border-top: 4px solid var(--gold-deep);
+}
+.contestants__inner { max-width: 1000px; margin: 0 auto; }
+.contestants__sub {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin: -0.4em 0 2.2rem;
+}
+
+.leaderboard {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.4rem;
+}
+
+.player-card {
+  position: relative;
+  background: linear-gradient(180deg, var(--red) 0%, var(--red-deep) 100%);
+  border: 2px solid var(--gold-deep);
+  border-radius: 8px;
+  padding: 1rem 1rem 1.2rem;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.45);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.player-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.55);
+}
+
+.player-card__rank {
+  position: absolute;
+  top: -14px;
+  left: -14px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+}
+
+.player-card__frame { margin-bottom: 0.9rem; }
+.player-card__photo {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Engraved brushed-gold name plate (assets/name-plate.jpg). border-image
+   keeps the bevelled rim crisp and stretches the brushed centre. */
+.player-card__name {
+  margin: 0;
+  padding: 0.35rem 0.6rem 0.3rem;
+  border: 6px solid #c9a03a;
+  border-image: url("assets/name-plate.jpg") 20 fill stretch;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  /* Engraved: dark letters with a light lip below */
+  color: #3b2905;
+  text-shadow: 0 1px 0 rgba(255, 244, 200, 0.7), 0 -1px 0 rgba(60, 40, 5, 0.25);
+  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.55));
+}
+.player-card__name span { display: block; } /* first name over last name */
+
+/* ===== Footer ===== */
+.site-footer {
+  background-color: var(--red-deep);
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: 0.9rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  border-top: 4px solid var(--gold-deep);
+}
+
+.site-footer a { color: inherit; }
+
+/* ===== The Button (clicker.html) =====
+   Look follows the Taskmaster reference: typewriter text (Special Elite),
+   condensed caps labels (Fjalla One) with a thick oxblood bar beneath,
+   aged paper on red damask, oxblood as the only accent. */
+:root {
+  --paper: #f4f2f0;
+  --paper-aged: #d9d0c0;
+  --oxblood: #941d12;
+  --oxblood-deep: #821b14;
+  --damask-shade: #4b0905;
+  --typewriter: "Special Elite", "Courier New", monospace;
+  --caps: "Fjalla One", "Oswald", sans-serif;
+  --torn-edge: polygon(0.00% 1.5px, 2.34% 4.3px, 4.70% 7.3px, 6.53% 2.1px, 8.54% 5.3px, 11.22% 2.1px, 12.49% 9.0px, 15.67% 5.5px, 17.19% 4.5px, 20.11% 3.3px, 22.12% 1.1px, 23.86% 5.0px, 26.07% 1.7px, 28.70% 2.1px, 30.09% 8.7px, 32.91% 6.9px, 35.06% 1.1px, 37.35% 1.8px, 39.60% 3.7px, 41.25% 3.5px, 43.34% 0.2px, 45.91% 8.9px, 47.82% 5.0px, 49.67% 5.5px, 52.32% 1.6px, 54.17% 8.3px, 56.64% 2.8px, 58.17% 7.3px, 60.72% 6.2px, 63.52% 8.6px, 65.80% 8.7px, 67.85% 4.4px, 69.26% 7.9px, 71.22% 7.2px, 73.89% 7.5px, 75.80% 2.6px, 77.87% 0.6px, 80.91% 8.9px, 82.58% 2.3px, 84.81% 6.6px, 86.61% 7.5px, 89.59% 5.4px, 91.40% 7.6px, 93.52% 2.5px, 95.06% 6.2px, 97.25% 5.3px, 100.00% 7.7px, 100.00% calc(100% - 5.3px), 97.25% calc(100% - 5.8px), 95.06% calc(100% - 8.6px), 93.52% calc(100% - 6.9px), 91.40% calc(100% - 2.8px), 89.59% calc(100% - 3.8px), 86.61% calc(100% - 7.2px), 84.81% calc(100% - 0.3px), 82.58% calc(100% - 8.6px), 80.91% calc(100% - 6.7px), 77.87% calc(100% - 3.0px), 75.80% calc(100% - 3.8px), 73.89% calc(100% - 0.5px), 71.22% calc(100% - 7.0px), 69.26% calc(100% - 1.5px), 67.85% calc(100% - 3.4px), 65.80% calc(100% - 5.3px), 63.52% calc(100% - 3.7px), 60.72% calc(100% - 6.1px), 58.17% calc(100% - 7.0px), 56.64% calc(100% - 0.9px), 54.17% calc(100% - 3.1px), 52.32% calc(100% - 1.5px), 49.67% calc(100% - 5.0px), 47.82% calc(100% - 6.7px), 45.91% calc(100% - 4.5px), 43.34% calc(100% - 0.8px), 41.25% calc(100% - 9.0px), 39.60% calc(100% - 3.3px), 37.35% calc(100% - 8.3px), 35.06% calc(100% - 4.3px), 32.91% calc(100% - 5.2px), 30.09% calc(100% - 8.0px), 28.70% calc(100% - 7.0px), 26.07% calc(100% - 0.3px), 23.86% calc(100% - 3.1px), 22.12% calc(100% - 8.4px), 20.11% calc(100% - 1.4px), 17.19% calc(100% - 1.0px), 15.67% calc(100% - 0.3px), 12.49% calc(100% - 6.6px), 11.22% calc(100% - 2.1px), 8.54% calc(100% - 0.6px), 6.53% calc(100% - 0.0px), 4.70% calc(100% - 4.6px), 2.34% calc(100% - 1.9px), 0.00% calc(100% - 6.2px));
+  /* Fine paper grain, generated (no image file) */
+  --paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.25 0 0 0 0 0.2 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.hero--compact { padding-bottom: clamp(2rem, 5vw, 3rem); }
+.hero--compact .hero__tagline { margin-bottom: 0; }
+
+.task {
+  background-color: var(--ink);
+  padding: clamp(2.5rem, 6vw, 4.5rem) 1rem;
+}
+/* On the contestant page the task sits on the same damask as the hero */
+.button-task .task {
+  background-color: var(--red);
+  background-image:
+    radial-gradient(ellipse at center, rgba(74, 10, 13, 0.55) 0%, rgba(28, 4, 5, 0.85) 100%),
+    url("assets/homepage-tile.png");
+  background-repeat: no-repeat, repeat;
+  background-size: cover, 1200px auto;
+  background-position: center, top center;
+  min-height: 70vh;
+}
+.task__inner { max-width: 560px; margin: 0 auto; text-align: center; }
+
+.task__status {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin: 0 0 1.5rem;
+}
+.task__status--error { color: var(--cream); text-transform: none; letter-spacing: 0; }
+.task__message { min-height: 1.6em; margin: 1.2rem 0 0; color: var(--gold-bright); }
+
+/* Call to action: condensed caps in ink with a thick oxblood bar beneath */
+.cta {
+  display: inline-block;
+  background: none;
+  border: 0;
+  border-bottom: 4px solid var(--oxblood);
+  padding: 0 0 2px;
+  font-family: var(--caps);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: var(--ink);
+  cursor: pointer;
+}
+.cta:hover { color: var(--oxblood-deep); }
+
+/* ----- 1. Envelope ----- */
+.envelope { perspective: 900px; }
+.envelope__body {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  min-height: 300px; /* room for seal + address on narrow phones */
+  background: var(--paper-grain), linear-gradient(170deg, #e4dccd, var(--paper-aged));
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+/* The closed flap: a triangle from the top edge down to the seal */
+.envelope__flap {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 45%;
+  background: var(--paper-grain), linear-gradient(180deg, #e9e2d4, #cfc4b0);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.25));
+}
+.envelope__address {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8%;
+  color: var(--ink);
+}
+.envelope__label {
+  font-family: "Veteran Typewriter", var(--typewriter);
+  text-transform: uppercase;
+  font-size: clamp(1.6rem, 6vw, 2.2rem);
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+.envelope__to { font-family: var(--typewriter); font-size: clamp(0.9rem, 3vw, 1.05rem); line-height: 1.4; margin: 0.2rem 0 0; }
+.envelope__hint { font-family: var(--typewriter); color: var(--paper-aged); margin: 1.4rem 0 0; }
+
+.seal {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: clamp(84px, 24%, 120px);
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.45));
+  transition: transform 150ms ease;
+}
+.seal:hover { transform: translate(-50%, -50%) rotate(-8deg) scale(1.06); }
+.seal:focus-visible { outline: 3px solid var(--gold-bright); outline-offset: 4px; border-radius: 50%; }
+.seal__svg { display: block; width: 100%; height: 100%; }
+.seal__tm {
+  font-family: "Veteran Typewriter", var(--typewriter);
+  font-size: 30px;
+  fill: #2e0603;
+  stroke: #c0362b;
+  stroke-width: 0.6;
+  paint-order: stroke;
+  opacity: 0.9;
+}
+.seal--breaking { animation: seal-break 700ms ease-in forwards; }
+@keyframes seal-break {
+  0%   { transform: translate(-50%, -50%) rotate(-8deg); }
+  25%  { transform: translate(-50%, -50%) rotate(4deg) scale(1.08); }
+  45%  { transform: translate(-50%, -50%) rotate(-12deg) scale(1.08); opacity: 1; }
+  100% { transform: translate(-50%, 120%) rotate(40deg) scale(0.9); opacity: 0; }
+}
+
+/* ----- 2. The task letter (torn paper) ----- */
+.letter { filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.55)); animation: letter-in 500ms ease-out; }
+@keyframes letter-in {
+  from { transform: translateY(24px) rotate(-1.5deg); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+.letter__paper {
+  background: var(--paper-grain), var(--paper);
+  clip-path: var(--torn-edge);
+  padding: 2.6rem clamp(1.4rem, 6vw, 2.6rem) 2.4rem;
+  text-align: left;
+  color: var(--ink);
+  font-family: var(--typewriter);
+  font-size: clamp(1.05rem, 3.6vw, 1.25rem);
+  line-height: 1.9;
+}
+.letter__eyebrow {
+  font-family: var(--caps);
+  text-transform: uppercase;
+  color: var(--oxblood-deep);
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+.letter__title {
+  font-family: var(--typewriter);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 6vw, 2.3rem);
+  line-height: 1.2;
+  margin: 0.2rem 0 1rem;
+}
+.letter__paper p { margin: 0 0 0.9em; }
+.letter__sign {
+  font-family: "Veteran Typewriter", var(--typewriter);
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  text-align: right;
+  margin-top: 1.4rem !important;
+}
+.letter__paper .cta { margin-top: 1rem; }
+
+/* The letter, set aside: a torn slip tucked against the right edge */
+.letter-tab {
+  position: fixed;
+  right: 0;
+  top: 42%;
+  z-index: 5;
+  writing-mode: vertical-rl;
+  background: var(--paper-grain), var(--paper);
+  color: var(--ink);
+  border: 0;
+  border-right: 4px solid var(--oxblood);
+  padding: 1.2rem 0.55rem;
+  font-family: var(--caps);
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  box-shadow: -4px 6px 16px rgba(0, 0, 0, 0.5);
+  clip-path: polygon(0 4px, 30% 0, 60% 5px, 100% 1px, 100% calc(100% - 2px), 65% 100%, 35% calc(100% - 5px), 0 calc(100% - 1px));
+  transform: rotate(-2deg);
+  transform-origin: right center;
+}
+.letter-tab:hover { padding-right: 0.9rem; }
+
+/* ----- 3. The device ----- */
+.device {
+  /* Faceplate geometry: a top band and side rails frame the display and
+     button; the bottom band covers the dial bay. */
+  --frame-top: 42px;
+  --frame-side: 18px;
+  --gap: 14px;
+  --bay-h: 240px;
+  position: relative;
+  padding: calc(var(--frame-top) + var(--gap)) calc(var(--frame-side) + var(--gap)) var(--gap);
+  border-radius: 10px;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0 2px, transparent 2px 5px),
+    linear-gradient(160deg, #3a3a37, #232321 60%, #191917);
+  border: 4px solid #0e0e0d;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 24px 48px rgba(0, 0, 0, 0.65),
+    0 6px 14px rgba(0, 0, 0, 0.45);
+}
+.device__label {
+  font-family: var(--caps);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  color: #a9a395;
+  margin: 0 0 0.3rem;
+}
+.device__display {
+  background: #0b0605;
+  border: 3px solid #121211;
+  border-radius: 6px;
+  padding: 0.8rem 0.6rem 0.6rem;
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.9);
+}
+.device__digits {
+  font-family: "Courier New", ui-monospace, monospace;
+  font-weight: 700;
+  font-size: clamp(2.4rem, 12vw, 4rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  color: #ff3b26;
+  text-shadow: 0 0 8px rgba(255, 59, 38, 0.75), 0 0 22px rgba(255, 59, 38, 0.35);
+  margin: 0;
+}
+.device--dead .device__digits { animation: dead-blink 1.2s steps(1) infinite; }
+@keyframes dead-blink { 50% { opacity: 0.15; } }
+
+.device__wires { display: block; width: 100%; height: 34px; margin: 0.4rem 0 0.2rem; fill: none; stroke-width: 4; stroke-linecap: round; }
+
+.device__button {
+  width: min(200px, 60vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 8px solid #121211;
+  background: radial-gradient(circle at 35% 30%, #d4402f, var(--oxblood) 55%, var(--damask-shade));
+  box-shadow: 0 0 0 4px #5a5a55, 0 10px 0 #2a0507, 0 18px 30px rgba(0, 0, 0, 0.6);
+  color: var(--paper);
+  font-family: var(--caps);
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: transform 80ms ease, box-shadow 80ms ease;
+}
+.device__button:active:not(:disabled) {
+  transform: translateY(8px);
+  box-shadow: 0 0 0 4px #5a5a55, 0 2px 0 #2a0507, 0 6px 14px rgba(0, 0, 0, 0.6);
+}
+.device__button:focus-visible { outline: 3px solid var(--gold-bright); outline-offset: 8px; }
+.device__button:disabled { cursor: not-allowed; filter: grayscale(0.85) brightness(0.55); }
+.device__message { min-height: 1.6em; margin: 1.2rem 0 0; font-family: var(--typewriter); color: var(--paper-aged); }
+
+/* Bay: hidden under the faceplate's bottom band */
+.device__bay {
+  position: relative;
+  margin-top: var(--gap);
+  height: var(--bay-h);
+  overflow: hidden;
+  border-radius: 6px;
+  background: #161614;
+  box-shadow: inset 0 4px 14px rgba(0, 0, 0, 0.85);
+}
+.device__panel {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 7px;
+  /* The padding box is the window onto the display and button */
+  padding: var(--frame-top) var(--frame-side) calc(var(--bay-h) + var(--gap) * 1.5);
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 4px),
+    linear-gradient(150deg, #8f8f88, #66665f 45%, #4d4d48);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 1px 0 0 rgba(255, 255, 255, 0.15),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.45),
+    inset -1px 0 0 rgba(0, 0, 0, 0.3);
+  /* Cut the window out of the plate */
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  transform-origin: 50% 100%;
+  pointer-events: none; /* only the screws are touchable */
+}
+/* Bevel and shadow around the window's edge, cast onto the plate */
+.device__panel::after {
+  content: "";
+  position: absolute;
+  inset: var(--frame-top) var(--frame-side) calc(var(--bay-h) + var(--gap) * 1.5);
+  border-radius: 4px;
+  box-shadow:
+    0 0 0 2px #121211,
+    0 0 0 3px rgba(255, 255, 255, 0.2),
+    0 0 12px 4px rgba(0, 0, 0, 0.45);
+}
+.device__panel--falling { animation: panel-fall 900ms ease-in forwards; }
+@keyframes panel-fall {
+  20%  { transform: rotate(-4deg); }
+  100% { transform: translateY(140%) rotate(18deg); opacity: 0; }
+}
+
+.screw {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid #2a2a27;
+  background:
+    linear-gradient(var(--slot-angle, 45deg), transparent 43%, #2a2a27 43%, #2a2a27 57%, transparent 57%),
+    radial-gradient(circle at 35% 30%, #e3e3dc, #9a9a92 70%);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  pointer-events: auto;
+  /* Each click turns it a little and lifts it out a little */
+  transform: rotate(calc(var(--turns, 0) * -72deg)) scale(calc(1 + var(--turns, 0) * 0.04));
+  transition: transform 150ms ease;
+}
+.screw:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+.screw--tl { top: 7px; left: 7px; }
+.screw--tr { top: 7px; right: 7px; --slot-angle: 120deg; }
+.screw--bl { bottom: 7px; left: 7px; --slot-angle: 160deg; }
+.screw--br { bottom: 7px; right: 7px; --slot-angle: 80deg; }
+.screw--falling { animation: screw-fall 600ms ease-in forwards; }
+@keyframes screw-fall {
+  0%   { transform: rotate(-360deg) scale(1.25); }
+  100% { transform: translateY(160px) rotate(-540deg) scale(1); opacity: 0; }
+}
+
+/* The dial, revealed when the panel comes off */
+.dial { padding: 0.8rem 0 0.4rem; }
+.dial__face {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0.4rem auto 0;
+}
+.dial__tick {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.4em;
+  margin: -0.7em 0 0 -0.7em;
+  line-height: 1.4em;
+  font-family: var(--caps);
+  color: var(--paper-aged);
+  /* 5 marks across 270°, from -135° to +135° */
+  transform: rotate(calc(-135deg + var(--i) * 67.5deg)) translateY(-62px) rotate(calc(135deg - var(--i) * 67.5deg));
+}
+.dial__knob {
+  position: absolute;
+  inset: 26px;
+  border-radius: 50%;
+  background:
+    repeating-conic-gradient(from 0deg, rgba(0, 0, 0, 0.35) 0 4deg, transparent 4deg 12deg),
+    radial-gradient(circle at 35% 30%, #5a5a55, #1d1d1b 75%);
+  border: 3px solid #121211;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+  transform: rotate(calc(-135deg + var(--turn, 1) * 67.5deg));
+  transition: transform 250ms cubic-bezier(0, 0, 0.58, 1);
+}
+.dial__pointer {
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  width: 6px;
+  height: 26px;
+  margin-left: -3px;
+  border-radius: 3px;
+  background: var(--oxblood);
+  box-shadow: 0 0 6px rgba(212, 64, 47, 0.8);
+}
+/* Invisible left/right halves of the knob: left turns down, right turns up */
+.dial__half {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.dial__half--down { left: 0; cursor: w-resize; }
+.dial__half--up { right: 0; cursor: e-resize; }
+.dial__half:focus-visible { outline: 2px solid var(--gold-bright); }
+.dial__value {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: var(--caps);
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  color: var(--paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seal--breaking, .letter, .screw--falling, .device__panel--falling { animation-duration: 1ms; }
+  .dial__knob, .screw { transition: none; }
+}
+
+/* ===== The Button admin (clicker-admin.html) ===== */
+.admin__inner { max-width: 1000px; margin: 0 auto; text-align: center; }
+
+.admin__table-wrap {
+  overflow-x: auto;
+  border: 2px solid var(--gold-deep);
+  border-radius: 8px;
+  background: linear-gradient(180deg, var(--red) 0%, var(--red-deep) 100%);
+}
+.admin__table { width: 100%; border-collapse: collapse; text-align: left; }
+.admin__table th,
+.admin__table td {
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid rgba(233, 196, 106, 0.25);
+  white-space: nowrap;
+}
+.admin__table tbody tr:last-child td { border-bottom: 0; }
+.admin__table th {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: var(--gold);
+}
+.admin__name { font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: 0.03em; }
+.admin__left,
+.admin__survived { font-variant-numeric: tabular-nums; }
+.admin__state { color: var(--gold-bright); font-weight: 600; }
+.admin__state--out { color: var(--cream); opacity: 0.6; }
+
+.admin__copy,
+.admin__reset-button {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.admin__copy {
+  background: transparent;
+  color: var(--gold-bright);
+  border: 1px solid var(--gold-deep);
+  padding: 0.3rem 0.7rem;
+}
+.admin__copy:hover { background: rgba(233, 196, 106, 0.12); }
+
+.admin__log-title { margin-top: 3rem; font-size: clamp(1.4rem, 3vw, 1.9rem); }
+.admin__empty { margin: 1rem 0 0; color: var(--gold-bright); }
+
+.admin__reset {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--gold-deep);
+}
+.admin__reset .section-title { font-size: clamp(1.4rem, 3vw, 1.9rem); }
+.admin__reset-button {
+  background: var(--gold);
+  color: var(--ink);
+  border: 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.8rem 1.8rem;
+}
+.admin__reset-button:hover { background: var(--gold-bright); }
+.admin__reset-button:disabled { opacity: 0.5; cursor: wait; }
+
+@media (max-width: 560px) {
+  .assistant__inner { flex-direction: column; text-align: center; }
+}
